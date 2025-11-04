@@ -135,7 +135,7 @@ function miapp() : void{
     nodoParrafo.style.color = option.value;
 }
 
-function mostrarInfo(){
+function mostrarInfo() : void {
     console.log("El idioma del navegador es: " + navigator.language);
     console.log("Nombre navegador: " + navigator.userAgent);
     console.log("Ver si tiene cookies o no habilitadas: " + navigator.cookieEnabled);
@@ -143,7 +143,7 @@ function mostrarInfo(){
     console.log("Tamaño ancho pantalla: " + window.innerWidth);
 }
 
-function redirec_to(){
+function redirec_to() : void {
     const url = $inputValue("url");
     const regExp = new RegExp("^https:\/\/");
 
@@ -190,10 +190,80 @@ function reloj(){
 
 window.onload = () => setInterval(reloj, 1000);
 
- 
+// a. Cuente el número de nodos o elementos
+function contarNodos(): void{
+    let nodo : HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+
+    let nodosHijos = nodo.children.length;
+    
+    console.log(nodosHijos);
+}
+
+// b. Obtén el texto del primer y último elemento
+function primerYUltimoNodo() : void{
+    let nodo : HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+
+    let primerHijo = nodo.firstElementChild;
+    let ultimoHijo = nodo.lastElementChild;
+
+    console.log(primerHijo);
+    console.log(ultimoHijo);
+}
+
+// c. Duplica (colocando al final) un elemento dado según su número. 
+function duplicar() : void{
+
+    let promp  = Number(prompt("Dime el numero del que quieres duplicar")) as number
+
+    let nodo : HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+
+    let nodoDuplicado : HTMLLIElement = document.createElement("li") as HTMLLIElement;
+
+    let duplicado : HTMLLIElement = nodo.children.item(promp - 1) as HTMLLIElement;
+
+    nodoDuplicado.textContent = duplicado.textContent;
+    
+    nodo.appendChild(nodoDuplicado);
+}
+
+// d. Modifica el valor de un elemento de la lista dado según su número.
+
+function modificar() : void{
+    let promp  = Number(prompt("Dime el numero del que quieres modificar")) as number;
+
+    let palabra : string  = prompt("Que quieres poner?: ") as string;
+
+    let nodo : HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+
+    let elemento : HTMLLIElement = nodo.children.item(promp - 1) as HTMLLIElement;
+
+    elemento.textContent = palabra;
+
+}
 
 
+// e. Muestra todos los elementos
 
+function todos_los_elementos() : void{
+    let nodo : HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
+
+    for (let elemento of nodo.children) {
+        console.log(elemento.textContent);
+    }
+}
+
+// f. Añade un nuevo nodo
+function añadir() : void{
+
+}
+
+// g. Elimina el nodo indicado por el número que ocupa según su posición.
+
+
+// h. Ordena todos los nodos alfabéticamente.
+
+
+// Helper
 
 
 

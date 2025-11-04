@@ -132,6 +132,51 @@ function reloj() {
     // Otra opcion es let now = new Date().toLocaleTimeString();
 }
 window.onload = function () { return setInterval(reloj, 1000); };
+// a. Cuente el número de nodos o elementos
+function contarNodos() {
+    var nodo = document.getElementById("lista");
+    var nodosHijos = nodo.children.length;
+    console.log(nodosHijos);
+}
+// b. Obtén el texto del primer y último elemento
+function primerYUltimoNodo() {
+    var nodo = document.getElementById("lista");
+    var primerHijo = nodo.firstElementChild;
+    var ultimoHijo = nodo.lastElementChild;
+    console.log(primerHijo);
+    console.log(ultimoHijo);
+}
+// c. Duplica (colocando al final) un elemento dado según su número. 
+function duplicar() {
+    var promp = Number(prompt("Dime el numero del que quieres duplicar"));
+    var nodo = document.getElementById("lista");
+    var nodoDuplicado = document.createElement("li");
+    var duplicado = nodo.children.item(promp - 1);
+    nodoDuplicado.textContent = duplicado.textContent;
+    nodo.appendChild(nodoDuplicado);
+}
+// d. Modifica el valor de un elemento de la lista dado según su número.
+function modificar() {
+    var promp = Number(prompt("Dime el numero del que quieres modificar"));
+    var palabra = prompt("Que quieres poner?: ");
+    var nodo = document.getElementById("lista");
+    var elemento = nodo.children.item(promp - 1);
+    elemento.textContent = palabra;
+}
+// e. Muestra todos los elementos
+function todos_los_elementos() {
+    var nodo = document.getElementById("lista");
+    for (var _i = 0, _a = nodo.children; _i < _a.length; _i++) {
+        var elemento = _a[_i];
+        console.log(elemento.textContent);
+    }
+}
+// f. Añade un nuevo nodo
+function añadir() {
+}
+// g. Elimina el nodo indicado por el número que ocupa según su posición.
+// h. Ordena todos los nodos alfabéticamente.
+// Helper
 // Helpers ( comunes para todo el boletin.SIEMPRE EMPIEZAN POR DOLAR) (AQUI PILLAN EL VALOR DEL INPUT Y EL WRITE NODE ESCRIBE EL MENSAJE )
 function $inputValue(id) {
     var input = document.getElementById(id); // Lectura
