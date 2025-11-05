@@ -1,3 +1,10 @@
+window.onload = () =>{
+    cuadricula_alumno();
+    ej1_cookie();
+}
+
+
+
 function cambiar_titulo(){
     let titulo : string = prompt("Introduce un nuevo titulo:") as string;
     console.log(titulo);
@@ -188,7 +195,7 @@ function reloj(){
 
 }
 
-window.onload = () => setInterval(reloj, 1000);
+// window.onload = () => setInterval(reloj, 1000);
 
 // a. Cuente el número de nodos o elementos
 function contarNodos(): void{
@@ -247,13 +254,17 @@ function modificar() : void{
 function todos_los_elementos() : void{
     let nodo : HTMLOListElement = document.getElementById("lista") as HTMLOListElement;
 
-    for (let elemento of nodo.children) {
-        console.log(elemento.textContent);
-    }
+    // for (let elemento of nodo.children) {
+    //     console.log(elemento.textContent);
+    // }
+
+    console.log("<------------------------>");
 }
 
 // f. Añade un nuevo nodo
 function añadir() : void{
+
+
 
 }
 
@@ -263,9 +274,83 @@ function añadir() : void{
 // h. Ordena todos los nodos alfabéticamente.
 
 
-// Helper
 
 
+// 2. Dado un array de alumnos desde Javascript, crea en formato cuadrícula un div con
+// un color de fondo aleatorio donde en el centro irá en negrita el nombre de cada uno
+// de los alumnos
+
+function cuadricula_alumno() : void{
+    let container : HTMLDivElement = document.getElementById("contenedor") as HTMLDivElement;
+
+
+    let alumnos : string[] = ["Fran", "Xexu", "Canijo", "Salvador", "Vanesa","Raquel", "Emilio", "Amanda", "Maria"];
+
+    for(let i = 0; i < alumnos.length; i++){
+        container.appendChild(crea_ficha(alumnos[i]));
+    }
+
+    // Funcion flecha
+    // alumnos.forEach(alumnos => container.appendChild(crea_ficha(alumnos)));
+}
+
+function crear_nuevo_alumno() : void{
+    let nombre : string = prompt("Introduce el nombre del alumno") as string;
+
+    // let container : HTMLDivElement = document.getElementById()
+
+    let ficha : HTMLDivElement = crea_ficha(nombre);
+}
+
+function crea_ficha(alumnos : string) : HTMLDivElement{
+        let cuadricula : HTMLDivElement = document.createElement("div") as HTMLDivElement;
+
+        cuadricula.textContent = alumnos;
+        cuadricula.style.backgroundColor = colorRandom();
+
+        return cuadricula;
+}
+
+function colorRandom() : string{
+    const colores = ["rojo", "azul", "verde", "amarillo", "naranja", "morado", "rosa", "negro", "blanco", "gris"];
+
+    let index = Math.floor(Math.random() * colores.length) + 1;
+
+    return colores[index];
+
+}
+
+//Cookies
+
+function ej1_cookie(){
+
+    // Escribir cookies
+    let cookie : string = "lang=ES;"; 
+    let cookieCurrency : string = "Euro;";
+
+    document.cookie = "";
+    document.cookie += cookie;
+    document.cookie += cookieCurrency;
+
+    //Leer cookies
+    console.log("Las cookies son: " + document.cookie);
+
+    //Array cookies
+    let arrayCookies : string[] = document.cookie.split(";");
+    arrayCookies.forEach(cookie => console.log("Cookie: " + cookie))
+    
+    //Leer una cookie en concreto ( lang )
+
+    let valor : string = "";
+    for(let i = 0; i < arrayCookies.length; i++){
+        let claveValor = arrayCookies[i].split("=");
+        if(claveValor[0] == "lang"){
+            valor = claveValor[1];
+        }
+    }
+    
+    
+}
 
 
 

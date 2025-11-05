@@ -1,3 +1,7 @@
+window.onload = function () {
+    cuadricula_alumno();
+    ej1_cookie();
+};
 function cambiar_titulo() {
     var titulo = prompt("Introduce un nuevo titulo:");
     console.log(titulo);
@@ -131,7 +135,7 @@ function reloj() {
     reloj.textContent = horas + ":" + minutos + ":" + segundos;
     // Otra opcion es let now = new Date().toLocaleTimeString();
 }
-window.onload = function () { return setInterval(reloj, 1000); };
+// window.onload = () => setInterval(reloj, 1000);
 // a. Cuente el número de nodos o elementos
 function contarNodos() {
     var nodo = document.getElementById("lista");
@@ -166,17 +170,66 @@ function modificar() {
 // e. Muestra todos los elementos
 function todos_los_elementos() {
     var nodo = document.getElementById("lista");
-    for (var _i = 0, _a = nodo.children; _i < _a.length; _i++) {
-        var elemento = _a[_i];
-        console.log(elemento.textContent);
-    }
+    // for (let elemento of nodo.children) {
+    //     console.log(elemento.textContent);
+    // }
+    console.log("<------------------------>");
 }
 // f. Añade un nuevo nodo
 function añadir() {
 }
 // g. Elimina el nodo indicado por el número que ocupa según su posición.
 // h. Ordena todos los nodos alfabéticamente.
-// Helper
+// 2. Dado un array de alumnos desde Javascript, crea en formato cuadrícula un div con
+// un color de fondo aleatorio donde en el centro irá en negrita el nombre de cada uno
+// de los alumnos
+function cuadricula_alumno() {
+    var container = document.getElementById("contenedor");
+    var alumnos = ["Fran", "Xexu", "Canijo", "Salvador", "Vanesa", "Raquel", "Emilio", "Amanda", "Maria"];
+    for (var i = 0; i < alumnos.length; i++) {
+        container.appendChild(crea_ficha(alumnos[i]));
+    }
+    // Funcion flecha
+    // alumnos.forEach(alumnos => container.appendChild(crea_ficha(alumnos)));
+}
+function crear_nuevo_alumno() {
+    var nombre = prompt("Introduce el nombre del alumno");
+    // let container : HTMLDivElement = document.getElementById()
+    var ficha = crea_ficha(nombre);
+}
+function crea_ficha(alumnos) {
+    var cuadricula = document.createElement("div");
+    cuadricula.textContent = alumnos;
+    cuadricula.style.backgroundColor = colorRandom();
+    return cuadricula;
+}
+function colorRandom() {
+    var colores = ["rojo", "azul", "verde", "amarillo", "naranja", "morado", "rosa", "negro", "blanco", "gris"];
+    var index = Math.floor(Math.random() * colores.length) + 1;
+    return colores[index];
+}
+//Cookies
+function ej1_cookie() {
+    // Escribir cookies
+    var cookie = "lang=ES;";
+    var cookieCurrency = "Euro;";
+    document.cookie = "";
+    document.cookie += cookie;
+    document.cookie += cookieCurrency;
+    //Leer cookies
+    console.log("Las cookies son: " + document.cookie);
+    //Array cookies
+    var arrayCookies = document.cookie.split(";");
+    arrayCookies.forEach(function (cookie) { return console.log("Cookie: " + cookie); });
+    //Leer una cookie en concreto ( lang )
+    var valor = "";
+    for (var i = 0; i < arrayCookies.length; i++) {
+        var claveValor = arrayCookies[i].split("=");
+        if (claveValor[0] == "lang") {
+            valor = claveValor[1];
+        }
+    }
+}
 // Helpers ( comunes para todo el boletin.SIEMPRE EMPIEZAN POR DOLAR) (AQUI PILLAN EL VALOR DEL INPUT Y EL WRITE NODE ESCRIBE EL MENSAJE )
 function $inputValue(id) {
     var input = document.getElementById(id); // Lectura
