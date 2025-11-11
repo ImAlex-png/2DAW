@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Formulario TypeScript</title>
+</head>
+
+<body>
+    <h2>Formulario TypeScript</h2>
+    <form>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+
+        <label for="apellidos">Apellidos:</label><br>
+        <input type="text" id="apellidos" name="apellidos"><br>
+
+        <label for="edad">Edad:</label><br>
+        <input type="number" id="edad" name="edad"><br>
+
+        <label for="telefono">Telefono:</label><br>
+        <input type="text" id="telefono" name="telefono"><br>
+
+        <label for="fechaNacimiento">Fecha de nacimiento:</label><br>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento"><br>
+
+        <label for="url">Url:</label><br>
+        <input type="text" id="url" name="url" placeholder="https://"><br>
+
+        <select id="select">
+            <option value="nombreAlReves">Mostrar tu nombre al reves:</option>
+            <option value="redirect">Redirigir:</option>
+            <option value="edad">Edad:</option>
+            <option value="cookies">Mostrar cookies: </option>
+        </select>
+    </form>
+
+    <button onclick="prueba()">Enviar</button>
+
+        <div id="hueco" style="background-color: gray;">
+            <p id="textoHueco">Sin contenido</p>
+        </div>
+</body>
+
+</html>
