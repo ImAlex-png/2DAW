@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <title>Examen UD 2</title>
+</head>
+<body>
+    <h1 id="bienvenida"></h1>
+    <form>
+        Dame un ID: <input type="number" name="id" id="id"><br><br>
+        Descripcion: <input type="text" name="descripcion" id="descripcion"><br><br>
+
+        <select id="opciones">
+            <option value="incidencia">Incidencia</option>
+            <option value="evento">Evento</option>
+            <option value="tarea">Tarea</option>
+        </select>
+
+        <div id="tarjeta">
+            <div id="vacio">
+                
+            </div>
+        </div>
+
+    </form><br><br>
+    <button onclick="envioTarjeta()">Enviar</button><br><br>
+
+    <button onclick="limpiarDiv()">Limpiar Tarjetas</button>
+
+    
+</body>
+</html>
