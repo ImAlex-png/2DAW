@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación Liga</title>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CLASIFICACIÓN LIGA JS</h1>
+
+    <div id="tabla" border="1"></div>
+    <br><br>
+
+    <!-- Formulario de entrada de resultados con envío controlado para evitar recarga de página y ejecución directa de la función -->
+    <form id="formulario" onsubmit="event.preventDefault(); procesarResultado();">
+        <label>Equipo Local:</label>
+        <select id="local"></select>
+
+        <br><br>
+
+        <label>Equipo Visitante:</label>
+        <select id="visitante"></select>
+
+        <br><br>
+
+        <label>Goles Local:</label>
+        <input type="number" id="golLocal" min="0" value="0">
+
+        <br><br>
+
+        <label>Goles Visitante:</label>
+        <input type="number" id="golVisitante" min="0" value="0">
+
+        <br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <br><br>
+
+    <div id="tabla"></div>
+
+</body>
+</html>
