@@ -1,0 +1,5 @@
+--MANUAL COMANDOS ANGULAR--
+
+INSTALAR: npm install -g @angular/cli
+
+NUEVO PROYECTO: ng new <project-name>
